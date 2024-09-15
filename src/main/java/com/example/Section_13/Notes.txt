@@ -1,0 +1,20 @@
+Session vs Request scopes
+
+-> All Request from browser are handled by our web application deployed on a server
+-> Request Scope => Active for a single Request only 
+                    -> Once the respone is sent back the Request attributes will be removed from the memory
+                    -> These cannot be used for future Request
+                    -> Recommended for most use cases
+-> Session Scope => Details are stored accross multiple Request
+                    -> Be careful about what you store in session (Takes additional memory as all details are stored in the server)
+                    
+Validation with Spring Boot
+
+1 -> Spring boot starter Validation 
+        -> pom.xml
+2 -> Command Bean (Form Backing Object) 
+        -> 2 way (todo.jsp & TodoController.java)
+3 -> Add Validation to the Bean
+         -> Todo.java
+4 -> Display Validation Error in the view       
+        -> todo.jsp
