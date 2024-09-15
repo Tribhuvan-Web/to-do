@@ -22,7 +22,7 @@ public class toDoController {
     }
 
     // => url
-    @RequestMapping("/list-todos")
+    @RequestMapping("list-todos")
     public String listAllTodos(ModelMap model) {
         List<Todo> todos = tDoService.findByUserName("reyansh");
         model.addAttribute("todos", todos);
@@ -31,16 +31,25 @@ public class toDoController {
 
     // GET , POST
 
-    @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
-    public String addTodos() {
+    @RequestMapping(value = "add-todo", method = RequestMethod.GET)
+    public String showNewTodoPage(ModelMap model) {
+        // We are creating by default for the to do
+        Todo todo = new Todo(0, (String) model.get("name"), "", LocalDate.now().plusYears(1), false);
+        model.put("todo", todo);
         return "todo";
     }
 
     /*
+     * 
+     * @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
+     * public String addTodos() {
+     * return "todo";
+     * }
      * Handling post method
      * 
      * @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-     * public String addNewTo(@RequestParam String description, ModelMap model,Todo
+     * public String addNewTodo(@RequestParam String description, ModelMap
+     * model,Todo
      * todo) {
      * toDoService.addTodo((String) model.get("name"), description,
      * LocalDate.now().plusYears(1), false);
@@ -49,9 +58,10 @@ public class toDoController {
      * }
      */
 
-    @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-    public String addNewTo(ModelMap model, Todo todo) {
-        toDoService.addTodo((String) model.get("name"), todo.getDescription(), LocalDate.now().plusYears(1), false);
+    @RequestMapping(value = "add-todo", method = RequestMethod.POST)
+    public String addNewTodo(ModelMap model, Todo todo) {
+        toDoService.addTodo((String) model.get("name"), (String) todo.getDescription(), LocalDate.now().plusYears(1),
+                false);
         // This is the path name where we are redirecting
         return "redirect:list-todos";
     }
