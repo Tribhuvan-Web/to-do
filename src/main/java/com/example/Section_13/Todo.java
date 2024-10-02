@@ -2,6 +2,8 @@ package com.example.Section_13;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Size;
+
 /*
  * Creating to do bean
  * We've to create database like mySQl
@@ -13,6 +15,8 @@ public class Todo {
     // => id,username,description,targetDate,done
     private int id;
     private String userName;
+
+    @Size(min = 10, message = "Enter at least 10 characters")
     private String description;
     private LocalDate targetDate;
     private boolean done;
