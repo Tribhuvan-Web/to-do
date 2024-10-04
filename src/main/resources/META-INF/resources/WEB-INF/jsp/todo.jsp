@@ -1,13 +1,6 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ include file = "common/header.jspf" %>
+<%@ include file = "common/navigation.jspf" %>
 
-<html>
-  <head>
-    <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet"/>
-    <title>Add to do page</title>
-  </head>
-  <body>
     <div class="container">
       <h1>Enter Todo Details</h1>
       <form:form method="post" modelAttribute="todo">
@@ -37,8 +30,8 @@
     <script src="webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
     <script type = "text/javascript">
-    $(.#targetdate).datepicker({
-      format: 'yyyy/mm/dd',
+    $('#targetDate').datepicker({
+      format: 'yyyy-mm-dd',
       });
     </script>
   </body>

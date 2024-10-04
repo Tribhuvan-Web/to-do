@@ -63,7 +63,6 @@ public class toDoController {
 
     @RequestMapping(value = "add-todo", method = RequestMethod.POST)
     public String addNewTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
-
         if (result.hasErrors()) {
             return "todo";
         }

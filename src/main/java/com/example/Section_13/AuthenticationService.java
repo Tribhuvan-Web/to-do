@@ -5,11 +5,6 @@ import org.springframework.stereotype.Service;
 @Service // => Telling spring to manage the beans if !found
 public class AuthenticationService {
 
-    /*
-     * Authenticating an user
-     * 
-     */
-
     public boolean authenticate(String userName, String password) {
 
         boolean isValidUsername = userName.equalsIgnoreCase("1234");
